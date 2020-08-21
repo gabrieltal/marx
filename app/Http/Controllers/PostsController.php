@@ -27,17 +27,7 @@ class PostsController extends Controller
 
     public function store()
     {
-        request()->validate([
-          "title" => ['required', 'min:3', 'max:255'],
-          "description" => ["required"],
-          "body" => ["required"]
-        ]);
-
-        $post = new Post();
-        $post->title = request('title');
-        $post->body = request('body');
-        $post->description = request('description');
-        $post->save();
+        Post::create($this->validatePost());
 
         return redirect('/posts');
     }
@@ -50,16 +40,17 @@ class PostsController extends Controller
 
     public function update(Post $post)
     {
-        request()->validate([
-          "title" => ['required', 'min:3', 'max:255'],
-          "description" => ["required"],
-          "body" => ["required"]
-        ]);
+        $post->update($this->validatePost());
 
-        $post->title = request('title');
-        $post->body = request('body');
-        $post->description = request('description');
-        $post->save();
         return redirect('/posts/' . $post->id);
+    }
+
+    protected function validatePost()
+    {
+        return request()->validate([
+            "title" => "required",
+            "description" => "required",
+            "body" => "required"
+        ]);
     }
 }
