@@ -12,4 +12,9 @@ class Post extends Model
     {
         return route('posts.show', $this);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
