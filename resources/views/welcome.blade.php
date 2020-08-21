@@ -1,6 +1,13 @@
 @extends ('layout')
 
 @section ('content')
+    <div id="body-wrapper">
+        <h2>Welcome!</h2>
+
+        <div class="links">
+            <a href="https://github.com/gabrieltal/marx">Github</a>
+        </div>
+    </div>
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
             <div class="top-right links">
@@ -15,15 +22,5 @@
                 @endauth
             </div>
         @endif
-
-        <div class="content">
-            <div class="title m-b-md">
-                Welcome!
-            </div>
-
-            <div class="links">
-                <a href="https://github.com/gabrieltal/marx">Github</a>
-            </div>
-        </div>
     </div>
 @endsection
