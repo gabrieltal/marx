@@ -21,4 +21,5 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/posts', 'PostsController@index');
 Route::get('/posts/{post}', 'PostsController@show');
