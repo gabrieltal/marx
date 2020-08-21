@@ -54,6 +54,12 @@ class PostsController extends Controller
 
     public function update($id)
     {
+        request()->validate([
+          "title" => ['required', 'min:3', 'max:255'],
+          "description" => ["required"],
+          "body" => ["required"]
+        ]);
+
         $post = Post::find($id);
         $post->title = request('title');
         $post->body = request('body');
