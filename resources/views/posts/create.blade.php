@@ -9,18 +9,22 @@
             <div class="form-group">
                 <label for="title">Title</label>
                 <div class="control">
-                    <input class="{{ $errors->has('title') ? 'is-invalid' : '' }}" type="text" name="title" id="title" value="">
+                    <input class="@error('title') is-invalid @enderror" type="text" name="title" id="title" value="{{ old('title') }}">
 
-                    @if ($errors->has('title'))
+                    @error('title')
                         <p class="help is-invalid">{{ $errors->first('title') }}</p>
-                    @endif
+                    @enderror
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="title">Tagline</label>
+                <label for="description">Tagline</label>
                 <div class="control">
-                    <input type="text" name="description" id="description" value="">
+                    <input class="@error('description') is-invalid @enderror" type="text" name="description" id="description" value="{{ old('description') }}">
+
+                    @error('description')
+                        <p class="help is-invalid">{{ $errors->first('description') }}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -28,7 +32,10 @@
                 <label for="body">Content</label>
 
                 <div class="control">
-                  <textarea name="body" rows="8" cols="80" id="body"></textarea>
+                  <textarea class="@error('body') is-invalid @enderror" name="body" rows="8" cols="80" id="body">{{ old('body') }}</textarea>
+                  @error('body')
+                      <p class="help is-invalid">{{ $errors->first('body') }}</p>
+                  @enderror
                 </div>
             </div>
 
