@@ -42,7 +42,7 @@ class PostsController extends Controller
     {
         $post->update($this->validatePost());
 
-        return redirect('/posts/' . $post->id);
+        return redirect($post->path());
     }
 
     protected function validatePost()

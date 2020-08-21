@@ -7,7 +7,7 @@
         <ul>
             @foreach ($posts as $post)
                 <li>
-                  <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+                  <a href="{{ $post->path() }}">{{ $post->title }}</a>
                   <p>{{ $post->description }}</p>
                 </li>
             @endforeach
