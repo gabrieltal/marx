@@ -73,6 +73,12 @@ input {
 input.is-invalid {
   border: 1px solid red;
   color: black;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.help {
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 .is-invalid { color: red; }
