@@ -9,14 +9,14 @@
             <div class="form-group">
                 <label for="title">Title</label>
                 <div class="control">
-                    <input type="text" name="title" id="title" value="">
+                    <input type="text" name="title" id="title" value="" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="title">Tagline</label>
                 <div class="control">
-                    <input type="text" name="description" id="description" value="">
+                    <input type="text" name="description" id="description" value="" required>
                 </div>
             </div>
 
@@ -24,7 +24,7 @@
                 <label for="body">Content</label>
 
                 <div class="control">
-                  <textarea name="body" rows="8" cols="80" id="body"></textarea>
+                  <textarea name="body" rows="8" cols="80" id="body" required></textarea>
                 </div>
             </div>
 

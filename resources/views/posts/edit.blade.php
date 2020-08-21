@@ -11,14 +11,14 @@
             <div class="form-group">
                 <label for="title">Title</label>
                 <div class="control">
-                    <input type="text" name="title" id="title" value="{{ $post->title }}">
+                    <input type="text" name="title" id="title" value="{{ $post->title }}" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="description">Tagline</label>
                 <div class="control">
-                    <input type="text" name="description" id="description" value="{{ $post->description }}">
+                    <input type="text" name="description" id="description" value="{{ $post->description }}" required>
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
                 <label for="body">Content</label>
 
                 <div class="control">
-                  <textarea name="body" rows="8" cols="80" id="body">{{ $post->body }}</textarea>
+                  <textarea name="body" rows="8" cols="80" id="body" required>{{ $post->body }}</textarea>
                 </div>
             </div>
 
