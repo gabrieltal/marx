@@ -21,4 +21,37 @@ class PostsController extends Controller
             "posts" => Post::all()
         ]);
     }
+
+    public function create()
+    {
+        return view("posts.create");
+    }
+
+    public function store()
+    {
+        $post = new Post();
+        $post->title = request('title');
+        $post->body = request('body');
+        $post->slug = request('slug');
+        $post->save();
+
+        return redirect('/posts');
+    }
+
+    public function edit($id)
+    {
+        $post = Post::find($id);
+
+        return view('posts.edit', compact('post'));
+    }
+
+
+    public function update($id)
+    {
+        $post = Post::find($id);
+        $post->title = request('title');
+        $post->body = request('body');
+        $post->save();
+        return redirect('/posts/' . $post->slug);
+    }
 }
