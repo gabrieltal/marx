@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+@extends ('layout')
+@section ('content')
     <h1>My Blog</h1>
     <p>{{ $post->body }}</p>
-  </body>
-</html>
+@endsection
