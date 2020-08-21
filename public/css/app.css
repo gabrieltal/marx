@@ -23,6 +23,10 @@ body {
   align-items: center;
 }
 
+.form-group {
+  margin: 15px 0px;
+}
+
 h1 a {
   color: yellow;
 }
@@ -108,4 +112,3 @@ footer {
 .m-b-md {
   margin-bottom: 30px;
 }
-
