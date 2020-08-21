@@ -8,11 +8,9 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    public function show($id)
+    public function show(Post $post)
     {
-        return view("posts.show", [
-            "post" => Post::find($id)
-        ]);
+        return view("posts.show", ["post" => $post]);
     }
 
     public function index()
@@ -44,15 +42,13 @@ class PostsController extends Controller
         return redirect('/posts');
     }
 
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::find($id);
-
         return view('posts.edit', compact('post'));
     }
 
 
-    public function update($id)
+    public function update(Post $post)
     {
         request()->validate([
           "title" => ['required', 'min:3', 'max:255'],
@@ -60,7 +56,6 @@ class PostsController extends Controller
           "body" => ["required"]
         ]);
 
-        $post = Post::find($id);
         $post->title = request('title');
         $post->body = request('body');
         $post->description = request('description');
