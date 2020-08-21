@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div id="body-wrapper">
+    <div id="form-wrapper">
         <h2>Edit post</h2>
 
         <form action="/posts/{{ $post->id }}" method="POST">
