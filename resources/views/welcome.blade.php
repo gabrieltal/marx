@@ -32,11 +32,10 @@
 
         <div class="content">
             <div class="title m-b-md">
-                Marx
+                Welcome!
             </div>
 
             <div class="links">
-                <a href="/about">About</a>
                 <a href="https://github.com/gabrieltal/marx">Github</a>
             </div>
         </div>
