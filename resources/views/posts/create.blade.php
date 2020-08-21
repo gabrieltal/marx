@@ -14,9 +14,9 @@
             </div>
 
             <div class="form-group">
-                <label for="title">Slug</label>
+                <label for="title">Tagline</label>
                 <div class="control">
-                    <input type="text" name="slug" id="slug" value="">
+                    <input type="text" name="description" id="description" value="">
                 </div>
             </div>
 

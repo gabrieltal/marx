@@ -6,7 +6,10 @@
 
         <ul>
             @foreach ($posts as $post)
-                <li><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></li>
+                <li>
+                  <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+                  <p>{{ $post->description }}</p>
+                </li>
             @endforeach
         </ul>
     </div>

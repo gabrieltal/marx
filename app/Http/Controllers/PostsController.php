@@ -32,7 +32,7 @@ class PostsController extends Controller
         $post = new Post();
         $post->title = request('title');
         $post->body = request('body');
-        $post->slug = request('slug');
+        $post->description = request('description');
         $post->save();
 
         return redirect('/posts');
@@ -51,6 +51,7 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->title = request('title');
         $post->body = request('body');
+        $post->description = request('description');
         $post->save();
         return redirect('/posts/' . $post->id);
     }

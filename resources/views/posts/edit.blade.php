@@ -16,9 +16,9 @@
             </div>
 
             <div class="form-group">
-                <label for="slug">Slug</label>
+                <label for="description">Tagline</label>
                 <div class="control">
-                    <input type="text" name="slug" id="slug" value="{{ $post->slug }}">
+                    <input type="text" name="description" id="description" value="{{ $post->description }}">
                 </div>
             </div>
 
