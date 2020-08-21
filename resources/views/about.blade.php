@@ -15,7 +15,8 @@
 @endsection
 
 @section ('content')
-    <h1>About</h1>
-
-    <p>Welcome to Marx. We love Karl Marx.</p>
+    <div id="body-wrapper">
+        <h1>About</h1>
+        <p>Welcome to Marx. We love Karl Marx.</p>
+    </div>
 @endsection
