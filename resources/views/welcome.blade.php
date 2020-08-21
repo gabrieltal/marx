@@ -8,7 +8,7 @@
             <a href="https://github.com/gabrieltal/marx">Github</a>
         </div>
     </div>
-    <div class="flex-center position-ref full-height">
+    <div class="flex-center position-ref vh-100">
         @if (Route::has('login'))
             <div class="top-right links">
                 @auth
