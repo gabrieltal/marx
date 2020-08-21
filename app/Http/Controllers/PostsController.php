@@ -8,10 +8,10 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    public function show($slug)
+    public function show($id)
     {
         return view("posts.show", [
-            "post" => Post::where('slug', $slug)->firstOrFail()
+            "post" => Post::find($id)
         ]);
     }
 
@@ -52,6 +52,6 @@ class PostsController extends Controller
         $post->title = request('title');
         $post->body = request('body');
         $post->save();
-        return redirect('/posts/' . $post->slug);
+        return redirect('/posts/' . $post->id);
     }
 }
