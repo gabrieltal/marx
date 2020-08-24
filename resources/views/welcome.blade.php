@@ -3,10 +3,7 @@
 @section ('content')
     <div id="body-wrapper">
         <h2>Welcome!</h2>
-
-        <div class="links">
-            <a href="https://github.com/gabrieltal/marx">Github</a>
-        </div>
+        <a href="https://github.com/gabrieltal/marx" class="yellow-color">Github</a>
     </div>
     <div class="flex-center position-ref vh-100">
         @if (Route::has('login'))

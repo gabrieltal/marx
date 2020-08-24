@@ -2,6 +2,7 @@
 
 @section ('content')
     <div id="body-wrapper">
+        <a href="/posts/create" class="yellow-color">Create Post</a>
         <h1>Posts</h1>
 
         <ul>
