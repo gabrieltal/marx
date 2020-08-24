@@ -4,6 +4,14 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-10">
+                @if (session('message'))
+                    <div class="alert alert-primary" role="alert">
+                        {{ session('message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <h1 class="mb-0">{{ $post->title }}</h1>
                 <div class="post-text">
                     <p class="description">{{ $post->description }}</p>

@@ -39,7 +39,7 @@ class PostsController extends Controller
         $post->save();
 
         $post->tags()->attach(request('tags'));
-        return redirect('/posts');
+        return redirect('/posts')->with('message', 'Published Post!');
     }
 
     public function edit(Post $post)
@@ -56,7 +56,7 @@ class PostsController extends Controller
     {
         $post->update($this->validatePost());
 
-        return redirect($post->path());
+        return redirect($post->path())->with('message', 'Updated Post!');
     }
 
     protected function validatePost()
