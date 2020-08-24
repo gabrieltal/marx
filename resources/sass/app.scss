@@ -1,10 +1,20 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
 html, body {
-  background-color: red;
+  background-color: $red;
   color: white;
   font-family: 'Nunito', sans-serif;
   font-weight: 200;
   height: 100vh;
   margin: 0;
+  font-size: 1rem;
 }
 
 #header-wrapper {
@@ -32,7 +42,11 @@ html, body {
 }
 
 .yellow-color {
-  color: yellow;
+  color: $yellow;
+
+  &:hover {
+    color: $yellow;
+  }
 }
 
 // Utils
@@ -70,7 +84,7 @@ input {
 
 input, textarea {
   &.is-invalid {
-    border: 1px solid red;
+    border: 1px solid $red;
     color: black;
     margin-top: inherit;
   }
@@ -82,7 +96,7 @@ input, textarea {
 }
 
 .is-invalid {
-  color: red;
+  color: $red;
   margin-top: 5px;
 }
 

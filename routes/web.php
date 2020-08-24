@@ -27,3 +27,7 @@ Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
 Route::get('/posts/{post}/edit', 'PostsController@edit');
 Route::patch('/posts/{post}', 'PostsController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
