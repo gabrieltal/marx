@@ -12,9 +12,7 @@
     </head>
     <body>
         <div id="header-wrapper" class="d-flex align-items-center">
-            <div id="header">
-                <h1><a href="/">Marx</a></h1>
-            </div>
+            <h1><a href="/" class="yellow-color">Marx</a></h1>
             <div class="nav">
                 <ul class="d-flex justify-content-between">
                     <li class="{{ Request::path() === '/' ? 'active-nav-item' : '' }}"><a href="/">Home</a></li>
