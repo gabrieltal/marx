@@ -10934,7 +10934,8 @@ a:hover {
   border-color: yellow !important;
 }
 
-.form-container {
+.form-container,
+.card {
   background: white;
   color: black;
 }
