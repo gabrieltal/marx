@@ -13,6 +13,31 @@ body {
   font-size: 1rem;
 }
 
+.form-container {
+  background: white;
+  color: black;
+}
+
+.post-text {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: white;
+  padding: 10px;
+  color: black !important;
+  border-top: 2px solid black;
+
+  .description {
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 18px;
+  }
+
+  .body {
+    font-weight: normal;
+    font-size: 14px;
+  }
+}
+
 a:hover { text-decoration: underline !important; }
 
 .navbar {
@@ -30,11 +55,32 @@ a:hover { text-decoration: underline !important; }
     }
 }
 
+.btn.btn-primary {
+  color: white;
+  background-color: $red !important;
+  border-color: $red !important;
+}
+.btn.btn-secondary {
+  color: black;
+  background-color: $yellow !important;
+  border-color: $yellow !important;
+}
+
 // Text
 .black-color { color: black; }
+.yellow-color { color: $yellow !important; }
 
-.yellow-color {
-  color: $yellow !important;
+.tag-container {
+  display: flex;
+  align-items: center;
+}
+
+.tag {
+  color: black !important;
+  background: $yellow;
+  border-radius: 16px;
+  padding: 5px;
+  margin: 0px 6px;
 }
 
 input, textarea {

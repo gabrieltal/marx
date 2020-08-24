@@ -72,7 +72,7 @@
             </main>
 
             <footer class="footer mt-auto py-3">
-                <div class="container">
+                <div class="container-fluid">
                     <p class="mb-0">A Gabriel Talavera production.</p>
                 </div>
             </footer>

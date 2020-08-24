@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section ('content')
-    <div id="body-wrapper">
-        <a href="/posts/create" class="yellow-color">Create Post</a>
+    <div class="container-fluid">
+        <a href="/posts/create" class="mb-2 btn btn-secondary">Create Post</a>
         <h1>Posts</h1>
 
         <ul>

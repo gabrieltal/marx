@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section ('content')
-    <div id="body-wrapper">
+    <div class="container-fluid">
         <h1>About</h1>
         <p>Welcome to Marx. We love Karl Marx.</p>
 
