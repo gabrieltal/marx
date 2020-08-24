@@ -27,17 +27,12 @@ html, body {
 }
 
 // Text
-h1 a { color: yellow; }
-.title { font-size: 84px; }
-.text-black { color: black; }
-.links > a {
-    color: yellow;
-    padding: 0 25px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    text-transform: uppercase;
+.black-color {
+  color: black;
+}
+
+.yellow-color {
+  color: yellow;
 }
 
 // Utils

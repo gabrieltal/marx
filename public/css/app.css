@@ -27,26 +27,12 @@ body {
   color: black;
 }
 
-h1 a {
-  color: yellow;
-}
-
-.title {
-  font-size: 84px;
-}
-
-.text-black {
+.black-color {
   color: black;
 }
 
-.links > a {
+.yellow-color {
   color: yellow;
-  padding: 0 25px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1rem;
-  text-decoration: none;
-  text-transform: uppercase;
 }
 
 .h-100 {
