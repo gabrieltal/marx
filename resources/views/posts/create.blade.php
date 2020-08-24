@@ -13,7 +13,7 @@
                         <input class="@error('title') is-invalid @enderror form-control" type="text" name="title" id="title" value="{{ old('title') }}">
 
                         @error('title')
-                            <p class="help is-invalid">{{ $message }}</p>
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -21,7 +21,7 @@
                         <label for="description">Tagline</label>
                         <input class="@error('description') is-invalid @enderror form-control" type="text" name="description" id="description" value="{{ old('description') }}">
                         @error('description')
-                            <p class="help is-invalid">{{ $message }}</p>
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -31,7 +31,7 @@
                         <textarea class="@error('body') is-invalid @enderror form-control" name="body" rows="8" cols="80" id="body">{{ old('body') }}</textarea>
 
                         @error('body')
-                            <p class="help is-invalid">{{ $message }}</p>
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -45,7 +45,7 @@
                             @endforeach
                         </select>
                         @error('tags')
-                            <p class="help is-invalid">{{ $message }}</p>
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
 

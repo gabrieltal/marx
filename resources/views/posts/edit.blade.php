@@ -14,7 +14,7 @@
                         <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title" value="{{ $post->title }}">
 
                         @error('title')
-                            <p class="help is-invalid">{{ $message }}</p>
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -23,7 +23,7 @@
                         <input class="form-control @error('description') is-invalid @enderror" type="text" name="description" id="description" value="{{ $post->description }}">
 
                         @error('description')
-                            <p class="help is-invalid">{{ $message }}</p>
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -34,7 +34,7 @@
                           <textarea class="form-control @error('body') is-invalid @enderror" name="body" rows="8" cols="80" id="body">{{ $post->body }}</textarea>
 
                           @error('body')
-                              <p class="help is-invalid">{{ $message }}</p>
+                              <span class="invalid-feedback" role="alert">{{ $message }}</span>
                           @enderror
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                             @endforeach
                         </select>
                         @error('tags')
-                            <p class="help is-invalid">{{ $message }}</p>
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
 

@@ -45,21 +45,8 @@ a:hover { text-decoration: underline !important; }
   color: black;
 }
 
-input, textarea {
-  &.is-invalid {
-    border: 1px solid $red;
-    color: black;
-    margin-top: inherit;
-  }
-}
-
 .help {
   font-size: 12px;
-  margin-top: 5px;
-}
-
-.is-invalid {
-  color: $red;
   margin-top: 5px;
 }
 
