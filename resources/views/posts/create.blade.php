@@ -12,7 +12,7 @@
                     <input class="@error('title') is-invalid @enderror" type="text" name="title" id="title" value="{{ old('title') }}">
 
                     @error('title')
-                        <p class="help is-invalid">{{ $errors->first('title') }}</p>
+                        <p class="help is-invalid">{{ $message }}</p>
                     @enderror
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <input class="@error('description') is-invalid @enderror" type="text" name="description" id="description" value="{{ old('description') }}">
 
                     @error('description')
-                        <p class="help is-invalid">{{ $errors->first('description') }}</p>
+                        <p class="help is-invalid">{{ $message }}</p>
                     @enderror
                 </div>
             </div>
@@ -34,7 +34,23 @@
                 <div class="control">
                   <textarea class="@error('body') is-invalid @enderror" name="body" rows="8" cols="80" id="body">{{ old('body') }}</textarea>
                   @error('body')
-                      <p class="help is-invalid">{{ $errors->first('body') }}</p>
+                      <p class="help is-invalid">{{ $message }}</p>
+                  @enderror
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="tags">Tags</label>
+
+                <div class="control">
+                  <select name="tags[]" multiple>
+                      @foreach ($tags as $tag)
+                          <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                      @endforeach
+                  </select>
+                  @error('tags')
+                      <p class="help is-invalid">{{ $message }}</p>
                   @enderror
                 </div>
             </div>
