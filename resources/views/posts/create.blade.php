@@ -33,6 +33,7 @@
 
                 <div class="control">
                   <textarea class="@error('body') is-invalid @enderror" name="body" rows="8" cols="80" id="body">{{ old('body') }}</textarea>
+
                   @error('body')
                       <p class="help is-invalid">{{ $message }}</p>
                   @enderror
