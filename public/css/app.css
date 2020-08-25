@@ -10914,6 +10914,10 @@ a:hover {
   text-decoration: underline !important;
 }
 
+a:hover img {
+  text-decoration: none !important;
+}
+
 .black-color {
   color: black;
 }
@@ -10997,6 +11001,17 @@ a:hover {
 
 .navbar .nav-item.active a {
   color: black !important;
+}
+
+.alert-primary {
+  color: white;
+  background-color: #091D84;
+  border-color: #091D84;
+}
+
+.alert-primary .close {
+  color: white;
+  opacity: 0.8;
 }
 
 footer {

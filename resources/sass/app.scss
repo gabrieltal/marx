@@ -16,7 +16,12 @@ body {
 //
 // Text
 //
-a:hover { text-decoration: underline !important; }
+a:hover {
+  text-decoration: underline !important;
+  img {
+    text-decoration: none !important;
+  }
+}
 
 .black-color { color: black; }
 
@@ -104,6 +109,20 @@ a:hover { text-decoration: underline !important; }
       border-radius: 3px;
       max-width: fit-content;
     }
+  }
+}
+
+//
+// Flash Alerts
+//
+.alert-primary {
+  color: white;
+  background-color: #091D84;
+  border-color: #091D84;
+
+  .close {
+    color: white;
+    opacity: 0.8;
   }
 }
 
