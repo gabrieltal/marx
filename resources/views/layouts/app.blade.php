@@ -24,7 +24,9 @@
         <div id="app" class="d-flex flex-column h-100">
             <header>
                 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-2">
-                    <a href="/" class="navbar-brand yellow-color py-0">Marx</a>
+                    <a href="/" class="navbar-brand yellow-color py-0 d-flex align-items-center">
+                      <img src="/images/hammer-sickle.svg" class="mr-1" alt="" height="32px" width="32px">Marx
+                    </a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
