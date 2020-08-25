@@ -27,15 +27,17 @@ class PostsController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Post::class);
         return view("posts.create", ['tags' => Tag::all()]);
     }
 
     public function store()
     {
+        $this->authorize('create', Post::class);
         $this->validatePost();
 
         $post = new Post(request(['title', 'description', 'body']));
-        $post->user_id = 1;
+        $post->user_id = $user->id;
         $post->save();
 
         $post->tags()->attach(request('tags'));
@@ -44,6 +46,7 @@ class PostsController extends Controller
 
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
 
         return view('posts.edit', [
           'post' => $post,
@@ -54,6 +57,8 @@ class PostsController extends Controller
 
     public function update(Post $post)
     {
+        $this->authorize('update', $post);
+
         $post->update($this->validatePost());
 
         return redirect($post->path())->with('message', 'Updated Post!');
