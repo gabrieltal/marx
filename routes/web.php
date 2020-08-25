@@ -13,13 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/posts', 'PostsController@index');
 Route::post('/posts', 'PostsController@store');
@@ -29,5 +23,3 @@ Route::get('/posts/{post}/edit', 'PostsController@edit');
 Route::patch('/posts/{post}', 'PostsController@update');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

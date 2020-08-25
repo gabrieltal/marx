@@ -1,23 +1,19 @@
-@extends('layouts.app')
+@extends ('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+@section ('content')
+    <div class="container-fluid">
+        @auth
+            <h2>Welcome {{ auth()->user()->name }}!</h2>
+            <h3>Your agenda!</h3>
+            <ul>
+              <li>No tasks available.</li>
+            </ul>
+        @else
+            <h2>Welcome comrade!</h2>
+            <p class="mb-0">We love Karl Marx.</p>
+            <p class="mb-0">Marx is a place to gather fellow communists, work together and push the world left.</p>
+            <p class="mb-4">Have thoughtful conversations, organize gatherings and unite to overthrow the capitalist systems that exploit our work and deplete the planet's resources.</p>
+            <img src="/images/karl-marx.jpg" alt="karl marx seated and looking regal and intelligent" width="300px" height="400px">
+        @endauth
     </div>
-</div>
 @endsection

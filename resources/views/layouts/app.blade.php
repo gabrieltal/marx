@@ -35,9 +35,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item {{ Request::path() === '/' ? 'active' : '' }}"><a class="nav-link yellow-color" href="/">Home</a></li>
-                            <li class="nav-item {{ Request::path() === 'about' ? 'active' : '' }}"><a class="nav-link yellow-color" href="/about">About</a></li>
-                            <li class="nav-item {{ Request::path() === 'posts' ? 'active' : '' }}"><a class="nav-link yellow-color" href="/posts">Posts</a></li>
+                            <li class="nav-item"><a class="nav-link yellow-color" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link yellow-color" href="/posts">Posts</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
@@ -75,7 +74,10 @@
 
             <footer class="footer mt-auto py-3">
                 <div class="container-fluid">
-                    <p class="mb-0">A Gabriel Talavera production.</p>
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-0">A <a href="https://linkedin.com/in/gvtalavera" class="text-white underline" target="_blank" rel="noreferrer">Gabriel Talavera</a> production.</p>
+                        <a href="https://github.com/gabrieltal/marx" class="yellow-color" target="_blank" rel="noreferrer">Contribute!</a>
+                    </div>
                 </div>
             </footer>
         </div>

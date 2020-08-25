@@ -12,6 +12,7 @@
                         </button>
                     </div>
                 @endif
+
                 @can ('update', $post)
                     <div class="post-admin-section">
                         <a href="/posts/{{ $post->id }}/edit">Edit</a>
@@ -19,6 +20,7 @@
                 @endcan
 
                 <h1 class="mb-0">{{ $post->title }}</h1>
+                <hr class="bg-white mt-2 mb-4">
                 <div class="post-text">
                     <p class="description">{{ $post->description }}</p>
                     <p class="body">{{ $post->body }}</p>
