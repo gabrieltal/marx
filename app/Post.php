@@ -33,6 +33,16 @@ class Post extends Model
         return $this->hasMany(Upvote::class);
     }
 
+    public function upvote()
+    {
+        $this->upvotes()->updateOrCreate(['user_id' => auth()->id()]);
+    }
+
+    public function hasUpvoted($user)
+    {
+        return $this->upvotes()->where('user_id', $user->id)->exists();
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class)->withTimestamps();
