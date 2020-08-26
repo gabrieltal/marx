@@ -4,9 +4,8 @@
     <div class="container-fluid">
         @auth
             <h2>Welcome {{ auth()->user()->name }}!</h2>
-            <h3>Your agenda!</h3>
-            <ul>
-              <li>No tasks available.</li>
+            <ul class="list-unstyled">
+                <li>No tasks available.</li>
             </ul>
         @else
             <h2>Welcome comrade!</h2>
