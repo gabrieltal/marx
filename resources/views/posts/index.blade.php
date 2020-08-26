@@ -23,7 +23,8 @@
                 @forelse ($posts as $post)
                     <li>
                       <a href="{{ $post->path() }}" class="yellow-color">{{ $post->title }}</a>
-                      <p>{{ $post->description }}</p>
+                      <p class="mb-0">{{ $post->description }}</p>
+                      <p class="text-white text-sm font-weight-bold">Written by <a href="{{ $post->user->path() }}" class="text-white">{{ $post->user->displayName() }}</a></p>
                     </li>
                 @empty
                     <li><p>No posts found!</p></li>
