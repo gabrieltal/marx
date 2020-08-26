@@ -3,12 +3,12 @@
 @section ('content')
     <div class="container-fluid">
         @auth
-            <h2>Welcome {{ auth()->user()->name }}!</h2>
+            <h1>Welcome {{ auth()->user()->name }}!</h1>
             <ul class="list-unstyled">
                 <li>No tasks available.</li>
             </ul>
         @else
-            <h2>Welcome comrade!</h2>
+            <h1>Welcome comrade!</h1>
             <p class="mb-0">We love Karl Marx.</p>
             <p class="mb-0">Marx is a place to gather fellow communists, work together and push the world left.</p>
             <p class="mb-4">Have thoughtful conversations, organize gatherings and unite to overthrow the capitalist systems that exploit our work and deplete the planet's resources.</p>

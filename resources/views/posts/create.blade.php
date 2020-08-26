@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center py-2">
             <div class="col-lg-10">
-                <h2>Make a new post!</h2>
+                <h1>Make a new post!</h1>
 
                 <form action="/posts" method="POST" class="form-container p-3">
                     @csrf

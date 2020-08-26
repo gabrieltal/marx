@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center py-2">
             <div class="col-lg-10">
-                <h2>Edit post</h2>
+                <h1>Edit post</h1>
                 <form action="/posts/{{ $post->id }}" method="POST" class="form-container p-3">
                     @csrf
                     @method('PATCH')
