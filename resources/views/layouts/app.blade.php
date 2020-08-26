@@ -80,6 +80,8 @@
                     </div>
                 </div>
             </footer>
+
+            <script src="http://unpkg.com/turbolinks"></script>
         </div>
     </body>
 </html>
