@@ -22,4 +22,6 @@ Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
 Route::get('/posts/{post}/edit', 'PostsController@edit');
 Route::patch('/posts/{post}', 'PostsController@update');
 
+Route::get('/users/{user:username}', 'UsersController@show')->name('users.show');
+
 Auth::routes();
