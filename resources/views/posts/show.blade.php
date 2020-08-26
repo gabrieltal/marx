@@ -22,15 +22,18 @@
                 <h1 class="mb-0">{{ $post->title }}</h1>
                 <hr class="bg-white mt-2 mb-4">
                 <div class="post-text">
-                    <p class="description">{{ $post->description }}</p>
+                    <p class="description mb-1">{{ $post->description }}</p>
+                    <p class="byline">Written by <a href="/users/{{ $post->user->id }}">{{ $post->user->displayName() }}</a></p>
                     <p class="body">{{ $post->body }}</p>
                 </div>
 
                 <div class="mt-4 tag-container">
-                    <span>Tags: </span>
-                    @foreach ($post->tags as $tag)
+                  <span>Tags: </span>
+                    @forelse ($post->tags as $tag)
                         <a class="tag" href="/posts?tag={{ $tag->name }}">{{ $tag->name }}</a>
-                    @endforeach
+                    @empty
+                        <p class="mb-0 ml-2">No tags available</p>
+                    @endforelse
                 </div>
             </div>
         </div>
