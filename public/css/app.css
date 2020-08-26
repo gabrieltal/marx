@@ -11030,6 +11030,15 @@ a:hover img {
   opacity: 0.8;
 }
 
+.pagination .page-link {
+  color: black;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #091D84;
+  border-color: #091D84;
+}
+
 footer {
   background: black;
   color: white;

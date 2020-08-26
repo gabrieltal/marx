@@ -140,6 +140,22 @@ a:hover {
 }
 
 //
+// Pagination
+//
+.pagination {
+  .page-link {
+    color: black;
+  }
+
+  .page-item.active {
+    .page-link {
+      background-color: #091D84;
+      border-color: #091D84;
+    }
+  }
+}
+
+//
 // Footer
 //
 footer {
