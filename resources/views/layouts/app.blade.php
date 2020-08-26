@@ -37,6 +37,7 @@
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item"><a class="nav-link yellow-color" href="/">Home</a></li>
                             <li class="nav-item"><a class="nav-link yellow-color" href="/posts">Posts</a></li>
+                            <li class="nav-item"><a class="nav-link yellow-color" href="/users">Users</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
