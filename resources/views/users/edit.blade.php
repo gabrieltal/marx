@@ -5,7 +5,7 @@
       <div class="row justify-content-center py-2">
           <div class="col-lg-10">
             <h1>Edit</h1>
-            <form action="/users" method="POST" class="form-container p-3">
+            <form action="/users" method="POST" class="form-container p-3" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
 
@@ -31,6 +31,21 @@
                     @error('bio')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                     @enderror
+                </div>
+
+                <div class="form-group">
+                  <label for="avatar" class="mb-0">Avatar</label>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <img src="{{ $user->avatar }}" alt="your avatar" class="rounded-circle my-3" width="150px" height="150px">
+
+                    <div class="custom-file ml-3">
+                      <input class="custom-file-input @error('avatar') is-invalid @enderror" type="file" name="avatar" id="avatar" value="{{ $user->avatar }}">
+                      <label for="avatar" class="custom-file-label">Upload an image</label>
+                      @error('avatar')
+                          <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                      @enderror
+                    </div>
+                  </div>
                 </div>
 
                 <div class="form-group">
