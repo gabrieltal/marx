@@ -2,17 +2,16 @@
 
 @section ('content')
     <div class="container-fluid">
-        @if (session('message'))
-            <div class="alert alert-primary" role="alert">
-                {{ session('message') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
-
         <div class="row justify-content-center">
           <div class="col-lg-10">
+            @if (session('message'))
+                <div class="alert alert-primary" role="alert">
+                    {{ session('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="d-flex justify-content-between align-items-center">
               <h1 class="mb-0">Posts</h1>
               @can ('create', App\Post::class)
@@ -32,6 +31,5 @@
             </ul>
           </div>
         </div>
-
     </div>
 @endsection
