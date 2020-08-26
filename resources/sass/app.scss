@@ -37,6 +37,12 @@ a:hover {
   border-color: $red !important;
 }
 
+.btn.btn-white {
+  color: black;
+  background-color: white !important;
+  border-color: white !important
+}
+
 .btn.btn-secondary {
   color: black;
   background-color: $yellow !important;
