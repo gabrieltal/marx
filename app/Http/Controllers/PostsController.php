@@ -64,6 +64,12 @@ class PostsController extends Controller
         return redirect($post->path())->with('message', 'Updated post!');
     }
 
+    public function upvote(Post $post)
+    {
+        $post->upvote();
+        return back();
+    }
+
     protected function validatePost()
     {
         return request()->validate([
