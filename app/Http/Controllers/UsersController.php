@@ -21,7 +21,13 @@ class UsersController extends Controller
     public function update()
     {
         $user = auth()->user();
-        $user->update($this->validateUser());
+        $attributes = $this->validateUser();
+        if (request('avatar')) {
+            $attributes['avatar'] = request('avatar')->store('avatars');
+        }
+        $user->update($attributes);
+
+
         return redirect($user->path())->with("message", "Updated your profile!");
     }
 
@@ -30,7 +36,8 @@ class UsersController extends Controller
         return request()->validate([
             "username" => ['required', 'string', 'max:20', 'unique:users,username,'.auth()->user()->id.',id', 'alpha_dash'],
             "name" => ['required', 'string', 'max:255'],
-            "bio" => ['required', 'string']
+            "bio" => ['required', 'string'],
+            "avatar" => ['file']
         ]);
     }
 }
