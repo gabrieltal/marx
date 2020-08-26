@@ -10979,6 +10979,14 @@ a:hover img {
   font-size: 14px;
 }
 
+.post-admin-section {
+  padding: 8px 0px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  margin: 6px 0px;
+}
+
 .tag-container {
   display: flex;
   align-items: center;
