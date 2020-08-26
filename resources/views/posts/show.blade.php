@@ -15,7 +15,7 @@
 
                 @can ('update', $post)
                     <div class="post-admin-section">
-                        <a href="/posts/{{ $post->id }}/edit">Edit</a>
+                        <a class="btn btn-secondary" href="/posts/{{ $post->id }}/edit" class="mr-2">Edit</a>
                     </div>
                 @endcan
 
