@@ -37,7 +37,7 @@ class PostsController extends Controller
         $this->validatePost();
 
         $post = new Post(request(['title', 'description', 'body']));
-        $post->user_id = $user->id;
+        $post->user_id = auth()->user()->id;
         $post->save();
 
         $post->tags()->attach(request('tags'));
