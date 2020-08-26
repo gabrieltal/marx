@@ -61,7 +61,7 @@ class PostsController extends Controller
 
         $post->update($this->validatePost());
 
-        return redirect($post->path())->with('message', 'Updated Post!');
+        return redirect($post->path())->with('message', 'Updated post!');
     }
 
     protected function validatePost()
