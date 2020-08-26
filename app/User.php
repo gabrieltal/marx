@@ -42,6 +42,16 @@ class User extends Authenticatable
         return route('users.show', $this);
     }
 
+    public function getAvatarAttribute($value)
+    {
+        return asset($value);
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
     public function follow(User $user)
     {
         return $this->follows()->save($user);
