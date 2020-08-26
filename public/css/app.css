@@ -10960,9 +10960,17 @@ a:hover img {
   color: black !important;
 }
 
+.post-text .byline {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.post-text .byline a {
+  color: #091D84;
+}
+
 .post-text .description {
   font-weight: bolder;
-  font-style: italic;
   font-size: 18px;
 }
 
