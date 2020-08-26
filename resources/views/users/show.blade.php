@@ -13,8 +13,17 @@
                     </div>
                 @endif
 
-                <div class="d-flex justify-content-between align-items-center">
-                  <h1>{{ $user->name }}</h1>
+                <div class="d-flex justify-content-between align-items-start mb-5">
+                  <div class="d-flex">
+                    <img src="{{ $user->avatar }}" alt="" class="rounded-circle" width="150px" height="150px">
+                    <div class="ml-3">
+                      <h1 class="mb-2">{{ $user->name }}</h1>
+                      <p class="mb-2">{{ $user->displayName() }}</p>
+                      <p>{{ $user->bio }}</p>
+
+                    </div>
+                  </div>
+
                   <div class="d-flex">
                     @auth
                       @if (auth()->user()->is($user))
@@ -34,8 +43,7 @@
                     @endauth
                   </div>
                 </div>
-                <p>{{ $user->displayName() }}</p>
-                <p>{{ $user->bio }}</p>
+
                 <div class="row">
                     <div class="col-lg">
                         <h2>Posts</h2>
