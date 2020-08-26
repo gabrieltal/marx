@@ -8,6 +8,11 @@ use App\User;
 
 class UsersController extends Controller
 {
+    public function index()
+    {
+        return view("users.index", ["users" => User::paginate(50)]);
+    }
+
     public function show(User $user)
     {
         return view("users.show", ["user" => $user]);
