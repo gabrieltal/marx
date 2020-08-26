@@ -14,15 +14,24 @@
                 @endif
 
                 <div class="d-flex justify-content-between align-items-start mb-5">
-                  <div class="d-flex">
-                    <img src="{{ $user->avatar }}" alt="" class="rounded-circle" width="150px" height="150px">
-                    <div class="ml-3">
-                      <h1 class="mb-2">{{ $user->name }}</h1>
-                      <p class="mb-2">{{ $user->displayName() }}</p>
-                      <p>{{ $user->bio }}</p>
+                    @isset($user->getAttributes()['avatar'])
+                        <div class="d-flex">
+                            <img src="{{ $user->avatar }}" alt="" class="rounded-circle" width="150px" height="150px">
+                            <div class="ml-3">
+                              <h1 class="mb-2">{{ $user->name }}</h1>
+                              <p class="mb-2">{{ $user->displayName() }}</p>
+                              <p>{{ $user->bio }}</p>
 
-                    </div>
-                  </div>
+                            </div>
+                        </div>
+                    @else
+                      <div class="d-block">
+                        <h1 class="mb-2">{{ $user->name }}</h1>
+                        <p class="mb-2">{{ $user->displayName() }}</p>
+                        <p>{{ $user->bio }}</p>
+                      </div>
+                    @endisset
+
 
                   <div class="d-flex">
                     @auth
