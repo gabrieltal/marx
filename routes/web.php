@@ -22,6 +22,7 @@ Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
 Route::get('/posts/{post}/edit', 'PostsController@edit');
 Route::patch('/posts/{post}', 'PostsController@update');
 
+Route::get('/users', 'UsersController@index');
 Route::get('/users/edit', 'UsersController@edit');
 Route::get('/users/{user:username}', 'UsersController@show')->name('users.show');
 Route::patch('/users', 'UsersController@update');
