@@ -13,17 +13,29 @@
                     </div>
                 @endif
 
-                @can ('update', $post)
-                    <div class="post-admin-section">
-                        <a class="btn btn-secondary" href="/posts/{{ $post->id }}/edit" class="mr-2">Edit</a>
-                    </div>
-                @endcan
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1 class="mb-0">{{ $post->title }}</h1>
+                    @can ('update', $post)
+                        <div class="post-admin-section">
+                            @if (! $post->isPublished())
+                                <form action="/posts/{{ $post->id }}/publish" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button class="btn btn-secondary ml-3" type="submit">
+                                        Publish
+                                    </button>
+                                </form>
+                            @endif
+                            <a class="btn btn-white" href="/posts/{{ $post->id }}/edit" class="mr-2">Edit</a>
+                        </div>
+                    @endcan
+                </div>
 
-                <h1 class="mb-0">{{ $post->title }}</h1>
                 <hr class="bg-white mt-2 mb-4">
+
                 <div class="post-text">
                     <p class="description mb-1">{{ $post->description }}</p>
-                    <p class="byline">Written by <a href="/users/{{ $post->user->id }}">{{ $post->user->displayName() }}</a></p>
+                    <p class="byline">Written by <a href="/users/{{ $post->user->username }}">{{ $post->user->displayName() }}</a></p>
                     <p class="body">{{ $post->body }}</p>
                 </div>
 
