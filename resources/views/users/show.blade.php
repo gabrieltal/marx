@@ -13,7 +13,27 @@
                     </div>
                 @endif
 
-                <h1>{{ $user->name }}</h1>
+                <div class="d-flex justify-content-between align-items-center">
+                  <h1>{{ $user->name }}</h1>
+                  <div class="d-flex">
+                    @auth
+                      @if (auth()->user()->is($user))
+                        <a href="/users/edit" class="btn btn-white ml-3">Edit</a>
+                      @elseif (auth()->user()->isFollowing($user))
+                      <form action="/users/{{ $user->username }}/unfollow" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" name="button" class="btn btn-secondary">Unfollow</button>
+                      </form>
+                      @else
+                          <form action="/users/{{ $user->username }}/follow" method="POST">
+                            @csrf
+                            <button type="submit" name="button" class="btn btn-secondary">Follow</button>
+                          </form>
+                      @endif
+                    @endauth
+                  </div>
+                </div>
                 <p>{{ $user->displayName() }}</p>
                 <p>{{ $user->bio }}</p>
                 <div class="row">
