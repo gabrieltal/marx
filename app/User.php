@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function displayName()
     {
-        return "@$this->name";
+        return "@$this->username";
     }
 
 
