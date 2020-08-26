@@ -51,7 +51,7 @@
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <p class="mb-0 nav-link text-white">{{ Auth::user()->name }}</p>
+                                    <a class="nav-link text-white" href="{{ auth()->user()->path() }}">{{ Auth::user()->name }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link yellow-color" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -76,7 +76,7 @@
                 <div class="container-fluid">
                     <div class="d-flex justify-content-between">
                         <p class="mb-0">A <a href="https://linkedin.com/in/gvtalavera" class="text-white underline" target="_blank" rel="noreferrer">Gabriel Talavera</a> production.</p>
-                        <a href="https://github.com/gabrieltal/marx" class="yellow-color" target="_blank" rel="noreferrer">Contribute!</a>
+                        <a href="https://github.com/gabrieltal/marx" class="yellow-color" target="_blank" rel="noreferrer">Github</a>
                     </div>
                 </div>
             </footer>
