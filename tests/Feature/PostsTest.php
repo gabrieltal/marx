@@ -13,8 +13,7 @@ class PostsTest extends TestCase
     public function test_expects_user_can_create_a_post()
     {
         // Arrange
-        $user = factory('App\User')->create();
-        $this->actingAs($user);
+        $this->signIn();
         $attributes = [
             'title' => $this->faker->sentence,
             'body' => $this->faker->sentence,
@@ -31,8 +30,7 @@ class PostsTest extends TestCase
     public function test_expects_errors_if_missing_required_field()
     {
         // Arrange
-        $user = factory('App\User')->create();
-        $this->actingAs($user);
+        $this->signIn();
 
         // Act/Assert
         $this->post('/posts', [])->assertSessionHasErrors('title');
