@@ -48,4 +48,14 @@ class PostsTest extends TestCase
             ->assertSee($project->title)
             ->assertSee($project->body);
     }
+
+    public function test_expects_redirect_when_guest_attempts_post_create()
+    {
+        // Act/Assert
+        $this->post('/posts', [
+            'title' => $this->faker->sentence,
+            'body' => $this->faker->sentence,
+            'description' => $this->faker->sentence
+        ])->assertForbidden();
+    }
 }
