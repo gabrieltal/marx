@@ -51,15 +51,18 @@
                 <div class="mt-4">
                   Comrades: {{ $post->upvotes->count() }}
 
-                  @unless ($post->hasUpvoted(auth()->user()))
-                      <form action="/posts/{{ $post->id }}/upvote" method="POST">
-                          @csrf
-                          @method('PATCH')
-                          <button class="btn btn-secondary ml-3" type="submit">
-                              Comrade!
-                          </button>
-                      </form>
-                  @endunless
+                  @auth
+                      @unless ($post->hasUpvoted(auth()->user()))
+                          <form action="/posts/{{ $post->id }}/upvote" method="POST">
+                              @csrf
+                              @method('PATCH')
+                              <button class="btn btn-secondary" type="submit">
+                                  Comrade!
+                              </button>
+                          </form>
+                      @endunless
+
+                  @endauth
                 </div>
             </div>
         </div>
