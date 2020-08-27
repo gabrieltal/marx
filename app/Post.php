@@ -40,7 +40,11 @@ class Post extends Model
 
     public function hasUpvoted($user)
     {
-        return $this->upvotes()->where('user_id', $user->id)->exists();
+        if ($user === null) {
+            return false;
+        } else {
+            return $this->upvotes()->where('user_id', $user->id)->exists();
+        }
     }
 
     public function tags()
