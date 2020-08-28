@@ -27,24 +27,26 @@ class PostsTest extends TestCase
         $this->assertDatabaseHas('posts', $attributes);
     }
 
-    public function test_expects_errors_if_missing_required_field()
+    public function test_expects_errors_if_missing_required_fields()
     {
         // Arrange
         $this->signIn();
 
         // Act/Assert
-        $this->post('/posts', [])->assertSessionHasErrors('title');
+        $this->post('/posts', [])
+            ->assertSessionHasErrors('title')
+            ->assertSessionHasErrors('body');
     }
 
-    public function test_expects_user_can_view_a_post()
+    public function test_expects_anyone_can_view_a_post()
     {
         // Arrange
-        $project = factory('App\Post')->create();
+        $post = factory('App\Post')->create();
 
         // Act/Assert
-        $this->get($project->path())
-            ->assertSee($project->title)
-            ->assertSee($project->body);
+        $this->get($post->path())
+            ->assertSee($post->title)
+            ->assertSee($post->body);
     }
 
     public function test_expects_redirect_when_guest_attempts_post_create()
@@ -55,5 +57,53 @@ class PostsTest extends TestCase
             'body' => $this->faker->sentence,
             'description' => $this->faker->sentence
         ])->assertForbidden();
+    }
+
+    public function test_expects_author_can_see_edit_post()
+    {
+        // Arrange
+        $user = $this->signIn();
+        $post = factory('App\Post')->create(['user_id' => $user->id]);
+
+        // Act/Assert
+        $this->get($post->path())->assertSee('Edit');
+        $this->get($post->path() . "/edit")
+            ->assertSee('Edit post')
+            ->assertSee($post->title)
+            ->assertSee($post->body);
+    }
+
+    public function test_expects_author_can_update_post()
+    {
+        // Arrange
+        $user = $this->signIn();
+        $post = factory('App\Post')->create(['user_id' => $user->id]);
+        $attributes = ['title' => 'overthrowing capitalist systems',
+                       'body' => $post->body,
+                       'description' => $post->description];
+
+        // Assume
+        $this->assertEquals($user->id, $post->user->id);
+
+        // Act
+        $this->patch($post->path(), $attributes);
+
+        // Act/Assert
+        $this->assertEquals($attributes['title'], $post->refresh()->title);
+        $this->assertDatabaseHas('posts', $attributes);
+    }
+
+    public function test_expects_redirect_when_guest_attempts_to_edit_unauthored_post()
+    {
+        // Arrange
+        $user = $this->signIn();
+        $post = factory('App\Post')->create();
+
+        // Assume
+        $this->assertNotEquals($user, $post->user);
+
+        // Act/Assert
+        $this->patch($post->path())->assertForbidden();
+        $this->get($post->path() . "/edit")->assertForbidden();
     }
 }
