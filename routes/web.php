@@ -21,7 +21,8 @@ Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
 Route::get('/posts/{post}/edit', 'PostsController@edit');
 Route::patch('/posts/{post}', 'PostsController@update');
-Route::patch('/posts/{post}/upvote', 'PostsController@upvote');
+Route::patch('/posts/{post}/comraderie', 'PostsController@give_comraderie');
+Route::delete('/posts/{post}/comraderie', 'PostsController@revoke_comraderie');
 
 Route::get('/users', 'UsersController@index');
 Route::get('/users/edit', 'UsersController@edit');

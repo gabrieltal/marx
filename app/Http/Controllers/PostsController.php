@@ -64,9 +64,16 @@ class PostsController extends Controller
         return redirect($post->path())->with('message', 'Updated post!');
     }
 
-    public function upvote(Post $post)
     {
-        $post->upvote();
+    public function give_comraderie(Post $post)
+    {
+        $post->giveComraderie();
+        return back();
+    }
+
+    public function revoke_comraderie(Post $post)
+    {
+        $post->revokeComraderie();
         return back();
     }
 
