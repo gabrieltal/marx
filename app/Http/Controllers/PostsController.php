@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostCreateRequest;
+use App\Http\Requests\PostUpdateRequest;
 use DB;
 use App\Post;
 use App\Tag;
@@ -31,17 +33,14 @@ class PostsController extends Controller
         return view("posts.create", ['tags' => Tag::all()]);
     }
 
-    public function store()
+    public function store(PostCreateRequest $request)
     {
-        $this->authorize('create', Post::class);
-        $this->validatePost();
+        $this->validateAssociatedTags();
 
-        $post = new Post(request(['title', 'description', 'body']));
-        $post->user_id = auth()->user()->id;
-        $post->save();
-
+        auth()->user()->posts()->create($request->validated());
         $post->tags()->attach(request('tags'));
-        return redirect('/posts')->with('message', 'Published Post!');
+
+        return redirect('/posts')->with('message', 'Published post!');
     }
 
     public function edit(Post $post)
@@ -54,12 +53,11 @@ class PostsController extends Controller
         ]);
     }
 
-
-    public function update(Post $post)
+    public function update(PostUpdateRequest $request, Post $post)
     {
-        $this->authorize('update', $post);
-
-        $post->update($this->validatePost());
+        $this->validateAssociatedTags();
+        $post->update($request->validated());
+        $post->tags()->attach(request('tags'));
 
         return redirect($post->path())->with('message', 'Updated post!');
     }
@@ -84,13 +82,10 @@ class PostsController extends Controller
         return back();
     }
 
-    protected function validatePost()
+    protected function validateAssociatedTags()
     {
         return request()->validate([
-            "title" => "required",
-            "description" => "required",
-            "body" => "required",
-            "tags" => "exists:tags,id"
+          "tags" => "exists:tags,id"
         ]);
     }
 }
