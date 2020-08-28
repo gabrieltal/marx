@@ -64,7 +64,14 @@ class PostsController extends Controller
         return redirect($post->path())->with('message', 'Updated post!');
     }
 
+    public function publish(Post $post)
     {
+        $this->authorize('update', $post);
+        $post->published_at = NOW();
+        $post->save();
+        return redirect($post->path())->with('message', 'Published post!');
+    }
+
     public function give_comraderie(Post $post)
     {
         auth()->user()->giveComraderie($post);
