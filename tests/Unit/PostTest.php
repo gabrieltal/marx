@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Collection;
+use Facades\Tests\Setup\PostFactory;
 
 class PostTest extends TestCase
 {
@@ -12,28 +13,28 @@ class PostTest extends TestCase
 
     public function test_expect_belongs_to_user()
     {
-        $post = factory('App\Post')->create();
+        $post = PostFactory::create();
 
         $this->assertInstanceOf('App\User', $post->user);
     }
 
     public function test_expects_has_tags()
     {
-        $post = factory('App\Post')->create();
+        $post = PostFactory::create();
 
         $this->assertInstanceOf(Collection::class, $post->tags);
     }
 
     public function test_expects_has_comraderies()
     {
-        $post = factory('App\Post')->create();
+        $post = PostFactory::create();
 
         $this->assertInstanceOf(Collection::class, $post->comraderies);
     }
 
     public function test_expects_has_comments()
     {
-        $post = factory('App\Post')->create();
+        $post = PostFactory::create();
 
         $this->assertInstanceOf(Collection::class, $post->comments);
     }
@@ -41,7 +42,7 @@ class PostTest extends TestCase
     public function test_expects_isPublished_to_return_boolean_based_on_published_at()
     {
         // Arrange
-        $post = factory('App\Post')->create();
+        $post = PostFactory::create();
 
         // Assume
         $this->assertEquals(null, $post->published_at);
@@ -60,7 +61,7 @@ class PostTest extends TestCase
     {
         // Arrange
         $user = $this->signIn();
-        $post = factory('App\Post')->create();
+        $post = PostFactory::create();
 
         // Assume
         $this->assertCount(0, $post->comraderies);

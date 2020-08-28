@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Facades\Tests\Setup\PostFactory;
 
 class PostsTest extends TestCase
 {
@@ -41,7 +42,7 @@ class PostsTest extends TestCase
     public function test_expects_anyone_can_view_a_post()
     {
         // Arrange
-        $post = factory('App\Post')->create();
+        $post = PostFactory::create();
 
         // Act/Assert
         $this->get($post->path())
@@ -63,7 +64,7 @@ class PostsTest extends TestCase
     {
         // Arrange
         $user = $this->signIn();
-        $post = factory('App\Post')->create(['user_id' => $user->id]);
+        $post = PostFactory::create($user);
 
         // Act/Assert
         $this->get($post->path())->assertSee('Edit');
@@ -77,7 +78,7 @@ class PostsTest extends TestCase
     {
         // Arrange
         $user = $this->signIn();
-        $post = factory('App\Post')->create(['user_id' => $user->id]);
+        $post = PostFactory::create($user);
         $attributes = ['title' => 'overthrowing capitalist systems',
                        'body' => $post->body,
                        'description' => $post->description];
@@ -97,7 +98,7 @@ class PostsTest extends TestCase
     {
         // Arrange
         $user = $this->signIn();
-        $post = factory('App\Post')->create();
+        $post = PostFactory::create();
 
         // Assume
         $this->assertNotEquals($user, $post->user);
