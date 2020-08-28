@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    use Comraderie;
+
     protected $fillable = ['title', 'description', 'body'];
 
     public function path()
@@ -15,7 +17,7 @@ class Post extends Model
 
     public function isPublished()
     {
-        return $this->published_at;
+        return ($this->published_at !== null);
     }
 
     public function user()
@@ -26,25 +28,6 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
-    }
-
-    public function upvotes()
-    {
-        return $this->hasMany(Upvote::class);
-    }
-
-    public function upvote()
-    {
-        $this->upvotes()->updateOrCreate(['user_id' => auth()->id()]);
-    }
-
-    public function hasUpvoted($user)
-    {
-        if ($user === null) {
-            return false;
-        } else {
-            return $this->upvotes()->where('user_id', $user->id)->exists();
-        }
     }
 
     public function tags()
