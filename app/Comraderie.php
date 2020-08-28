@@ -3,16 +3,6 @@
 namespace App;
 
 trait Comraderie {
-    public function giveComraderie()
-    {
-        return $this->comraderies()->attach(auth()->user());
-    }
-
-    public function revokeComraderie()
-    {
-        return $this->comraderies()->detach(auth()->user());
-    }
-
     public function comraderies()
     {
         return $this->morphToMany(User::class, 'comraderie')->withTimestamps();

@@ -52,6 +52,16 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
+    public function giveComraderie($comradable)
+    {
+        return $comradable->comraderies()->attach($this);
+    }
+
+    public function revokeComraderie($comradable)
+    {
+        return $comradable->comraderies()->detach($this);
+    }
+
     public function follow(User $user)
     {
         return $this->follows()->save($user);

@@ -67,13 +67,13 @@ class PostsController extends Controller
     {
     public function give_comraderie(Post $post)
     {
-        $post->giveComraderie();
+        auth()->user()->giveComraderie($post);
         return back();
     }
 
     public function revoke_comraderie(Post $post)
     {
-        $post->revokeComraderie();
+        auth()->user()->revokeComraderie($post);
         return back();
     }
 
