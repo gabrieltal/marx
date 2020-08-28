@@ -5,16 +5,12 @@ namespace App;
 trait Comraderie {
     public function giveComraderie()
     {
-        $this->comraderies()->attach(auth()->user());
-        $this->refresh();
-        return true;
+        return $this->comraderies()->attach(auth()->user());
     }
 
     public function revokeComraderie()
     {
-        $this->comraderies()->detach(auth()->user());
-        $this->refresh();
-        return true;
+        return $this->comraderies()->detach(auth()->user());
     }
 
     public function comraderies()
