@@ -82,7 +82,6 @@ class User extends Authenticatable
         return "@$this->username";
     }
 
-
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -93,8 +92,13 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    public function upvotes()
+    public function postComraderies()
     {
-        return $this->hasMany(Upvote::class);
+        return $this->morphedByMany('App\Post', 'comraderie');
+    }
+
+    public function commentComraderies()
+    {
+        return $this->morphedByMany('App\Comment', 'comraderie');
     }
 }
