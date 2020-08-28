@@ -49,19 +49,26 @@
                 </div>
 
                 <div class="mt-4">
-                  Comrades: {{ $post->upvotes->count() }}
+                  Comraderies: {{ $post->comraderies->count() }}
 
                   @auth
-                      @unless ($post->hasUpvoted(auth()->user()))
-                          <form action="/posts/{{ $post->id }}/upvote" method="POST">
+                      @if ($post->hasGivenComraderie(auth()->user()))
+                          <form action="/posts/{{ $post->id }}/comraderie" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button class="btn btn-secondary" type="submit">
+                                  Revoke Comraderie!
+                              </button>
+                          </form>
+                      @else
+                          <form action="/posts/{{ $post->id }}/comraderie" method="POST">
                               @csrf
                               @method('PATCH')
                               <button class="btn btn-secondary" type="submit">
-                                  Comrade!
+                                  Comraderie!
                               </button>
                           </form>
-                      @endunless
-
+                      @endif
                   @endauth
                 </div>
             </div>
