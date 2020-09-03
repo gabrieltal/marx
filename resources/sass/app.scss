@@ -51,6 +51,25 @@ a:hover {
   border-color: $yellow !important;
 }
 
+.comraderie-btn {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('/images/hammer-sickle-grey.svg');
+  padding: 24px;
+
+  // If image is liked already add this class to btn so it appears liked
+  &.liked { background-image: url('/images/hammer-sickle.svg'); }
+
+  &:hover {
+    background-image: url('/images/hammer-sickle.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    // If image is liked already then on hover it would turn grey to indicate unliking it
+    &.liked { background-image: url('/images/hammer-sickle-grey.svg'); }
+  }
+}
+
 //
 // Form
 //

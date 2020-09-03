@@ -10952,6 +10952,27 @@ a:hover img {
   border-color: yellow !important;
 }
 
+.comraderie-btn {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("/images/hammer-sickle-grey.svg");
+  padding: 24px;
+}
+
+.comraderie-btn.liked {
+  background-image: url("/images/hammer-sickle.svg");
+}
+
+.comraderie-btn:hover {
+  background-image: url("/images/hammer-sickle.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.comraderie-btn:hover.liked {
+  background-image: url("/images/hammer-sickle-grey.svg");
+}
+
 .form-container,
 .card {
   background: white;

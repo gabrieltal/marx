@@ -56,16 +56,16 @@
                           <form action="/posts/{{ $post->id }}/comraderie" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button class="btn btn-secondary" type="submit">
-                                  Revoke Comraderie!
+                              <button class="btn btn-lg comraderie-btn liked" type="submit">
+                                  <span class="sr-only">Remove your like from the Post</span>
                               </button>
                           </form>
                       @else
                           <form action="/posts/{{ $post->id }}/comraderie" method="POST">
                               @csrf
                               @method('PATCH')
-                              <button class="btn btn-secondary" type="submit">
-                                  Comraderie!
+                              <button class="btn comraderie-btn" type="submit">
+                                  <span class="sr-only">Give post a like</span>
                               </button>
                           </form>
                       @endif
