@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($value)
     {
-        return asset($value);
+        return $value ? asset($value) : null;
     }
 
     public function setPasswordAttribute($value)
