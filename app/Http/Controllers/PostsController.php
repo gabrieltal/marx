@@ -37,7 +37,7 @@ class PostsController extends Controller
     {
         $this->validateAssociatedTags();
 
-        auth()->user()->posts()->create($request->validated());
+        $post = auth()->user()->posts()->create($request->validated());
         $post->tags()->attach(request('tags'));
 
         return redirect('/posts')->with('message', 'Published post!');
