@@ -35,10 +35,12 @@
 
                 <div class="form-group">
                   <label for="avatar" class="mb-0">Avatar</label>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <img src="{{ $user->avatar }}" alt="your avatar" class="rounded-circle my-3" width="150px" height="150px">
+                  <div class="d-flex flex-column">
+                    @if($user->avatar)
+                      <img src="{{ $user->avatar }}" alt="your avatar" class="rounded-circle my-3" width="150px" height="150px">
+                    @endisset
 
-                    <div class="custom-file ml-3">
+                    <div class="custom-file mt-2">
                       <input class="custom-file-input @error('avatar') is-invalid @enderror" type="file" name="avatar" id="avatar" value="{{ $user->avatar }}">
                       <label for="avatar" class="custom-file-label">Upload an image</label>
                       @error('avatar')
